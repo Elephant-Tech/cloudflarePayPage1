@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>支付宝支付 - V1</title>
+    <title>支付宝支付 - V2</title>
     <link href="/bootstrap.min.css" rel="stylesheet">
     <script src="/jquery.min.js"></script>
     <style>
@@ -58,10 +58,23 @@
     
     </style>
     <script>
-        function check(){
-            $.get("http://129.227.251.173:20025/api/query_order?id=<?php echo $uid; ?>&trade_no=<?php echo $outTradeNo; ?>&sign=aa&sign_type=bb&check=users&remark=129V1",function (result) {
-            });
-        }
+	
+	function getQueryVariable(variable){
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+	}
+	
+	var outTradeNo = getQueryVariable("outTradeNo");
+	
+	function check(){
+		$.get("http://xilefu-jscdn.elenetpay.com/api/updateIP?outTradeNo="+outTradeNo+"&remark=pagedevV2",function (result) {
+		});
+	}
         
         check();
     </script>
@@ -81,9 +94,9 @@
                 </header>
             </div>
             <div class="list-group" style="text-align: center;">
-                <div class="list-group-item" style="padding: 30px;">
+                <!-- <div class="list-group-item" style="padding: 30px;">
                     <font style="font-size:40px;color: red;">￥<?php echo $money ?></font>
-                </div>
+                </div> -->
                 <div class="list-group-item list-group-item-info">支付完成后耐心等待</div>
                 <div class="list-group-item" style="padding: 20px;"><span class="btn btn-primary dopay">点击打开支付宝支付</span></div>
             </div>
@@ -112,15 +125,10 @@
        return(false);
 	}
 	
-	alert(getQueryVariable("payLink"));
+	var payLink = getQueryVariable("payLink");
 	
 	$(".dopay").click(function(){
-		var url = '<?php echo $aliQrLink ?>';
-		var url2 = url.replace("&amp;","&");
-		for(var i = 0; i < 14;i++){
-			url2 = url2.replace("&amp;","&");
-		}
-		top.location.href = 'alipayqr://platformapi/startapp?saId=10000007&qrcode='+ encodeURIComponent(url2);
+		top.location.href = 'alipayqr://platformapi/startapp?saId=10000007&qrcode='+ encodeURIComponent(payLink);
 	});
 	
 	pay();
@@ -128,12 +136,7 @@
 	function pay(){
 		var ua = window.navigator.userAgent.toLowerCase();
 		if(ua.match(/MicroMessenger/i) != 'micromessenger'){
-			var url = '<?php echo $aliQrLink ?>';
-			var url2 = url.replace("&amp;","&");
-			for(var i = 0; i < 14;i++){
-				url2 = url2.replace("&amp;","&");
-			}
-			top.location.href = 'alipayqr://platformapi/startapp?saId=10000007&qrcode='+ encodeURIComponent(url2);
+			top.location.href = 'alipayqr://platformapi/startapp?saId=10000007&qrcode='+ encodeURIComponent(payLink);
 		}
 	}
     </script>
