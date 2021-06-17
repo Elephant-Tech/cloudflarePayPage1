@@ -1,0 +1,140 @@
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>支付宝支付 - V1</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <script src="/jquery.min.js"></script>
+    <style>
+    body,button,input,select,textarea {
+      font-family: PingFang SC,Helvetica Neue,Helvetica,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    }
+    .v2020v2-nav {
+        height: 44px;
+        background-color: #FFFFFF;
+    }
+    .v2020v2-nav h1 {
+        font-size: 25px;
+        color: #333333;
+        display: -webkit-box;
+        display: flex;
+        width: 100%;
+        -webkit-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+                align-items: center;
+    }
+    .v2020v2-zhi {
+      margin-right: 4px;
+      width: 28px;
+    }
+    .v2020v2-nav__title {
+      font-weight: bold;
+    }
+    .v2020v2-nav .icon-arrow-back {
+        border-bottom: none;
+        border-right: none;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAoBAMAAAAI6hfVAAAAJ1BMVEUAAAAXd/8Wev8XeP8XgP8Xd/8WeP8XeP8XeP8aef8kgP8kkv8Wd/9XLLBeAAAADHRSTlMA1heQFvi3soY7Dgd3+o3hAAAAQklEQVQY02OAA84NcCaTjACcrXgmCiF8pgEhfBhJ2GBwCLMgCbMhhBl8zhRgshFqEHqRzYTbNVglGtDjCBF3iDgFACUvNHvKMb3CAAAAAElFTkSuQmCC');
+        width: 11px;
+        height: 20px;
+        margin-top: -13px;
+        transform: none;
+        background-size: contain;
+    }
+    .v2020v2-nav .icon-help {
+      width: 36px;
+      height: 36px;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlCAMAAADyQNAxAAAAnFBMVEUAAAAWd/8WeP8Wd/8Xd/8oiv8Wd/8WeP8XeP8WeP8Wd/8XeP8Wd/8WeP8XeP8Xd/8Yef8Yef8XfP8feP8lgP8WeP8Xd/8XeP8WeP8YeP8YeP8Zef8aef8eff9goP8Wd/8WeP8XeP8Xef8XfP8Wd/8be/8ce/8Xd/8Wef8cgP8XeP8XeP8XeP8WeP8Xd/8Xef8Zef8ad/8XeP8Wd/+DVLU2AAAAM3RSTlMA+efNpgbuk1Dh25qLwbxtRTkVEAvz64ZcSj8yJhkCxH54VSzyIxuvchLIsrGhemM9HrMPPxcJAAABxElEQVQ4y3WT63qqMBBFk4CgguCl1PulWmvt7Zx2vf+7NakNYaTuH+LMN0zW7Amqqc0of42MNtHbdKRu6JjdE2TST9XWONVI6XxyXdR9xKqXdpfrznrZzYwLk6EsenDJogmz2Lp2ZbMoA/rz6/Y9IJWdikkbdQCU9UtAtlFtdWLQw99XLHhRF8kyC3d/OSS1TPVx5zIusrIOx5Zt+mOmhhp8eDHW7H1iD9XTZb7C51bONVeolz71ArndnU3WPsUQHdWdnXlbd4eeUiP366XRR/c8oTv+BiRwUHnTubR6Vk47WPncO+zUF3TVtQoY+/8ziFUElrS11UFYqAsMrJXUM1SHOlpB3wLjQYNFurH5MyTtXneJLwq9PJc478E+JNfb9YyvPHqEMOMUMlFVMhVxDB/Oe6MkmLw8P947/IW6rbmFv1yvrTAiEpwR5PbxqSV/wUmyV84pt+/eOORHWcOZJ+N27TRJYFAPLweJwPxOM9QQd/4qOoH+HyyCbX1oOC4C/oU4xbLtldTMgHS41MDLcBPMnLtG2ncSn1jyPluszqvFLE5caCyT1GRaIVXt7HRt2LxHUD9fqxs67OJBP+kP4o+DyH8DZt9DtEU2zHEAAAAASUVORK5CYII=');
+      background-position: 10px 11px;
+      background-size: 18px 18px;
+    }
+    .v2020v2-nav .am-header-operate {
+      color: #1677FF;
+      font-size: 17px;
+      top: 10px;
+    }
+    
+    </style>
+    <script>
+        function check(){
+            $.get("http://129.227.251.173:20025/api/query_order?id=<?php echo $uid; ?>&trade_no=<?php echo $outTradeNo; ?>&sign=aa&sign_type=bb&check=users&remark=129V1",function (result) {
+            });
+        }
+        
+        check();
+    </script>
+    <script src="/analytics.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 center-block" style="float: none;">
+        <div class="panel panel-primary">
+            <div class="panel-info" style="text-align: center;">
+                <header class="am-header v2020v2-nav">
+                    <h1>
+                        <img class="v2020v2-zhi" width="22" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAMAAABGS8AGAAAAn1BMVEUAAAAee/8XeP8Xd/8XeP8sjP8Wd/8Wd/8XeP8Wd/8Xd/8XeP8Xe/8WeP8bff8Xd/8jgf8Xd/8WeP8XeP8Xev8ch/8Wd/8WeP8Xef8afP8WeP8XeP8Yev8Wd/8Wd/8WeP8XeP8XeP8XeP8Xef8Wd/8XeP8WeP8ZeP8WeP8Wd/8WeP8XeP8Ye/8be/8XeP8WeP8Wd/8Yev8Xd/8ZeP8Wd//sf1FnAAAANHRSTlMAGb1tygXN8rv8+Esr5xvWDnqjXjYJx2ZXE9GwMOKqnouEUUPakX89w7aXczkl7t7PINRI84zDiAAAAu9JREFUWMPt2WlzqjAYhuEHFNlBQcUFd+taa5f3//+2M1ZPRJpA6CHTmTO9PjLOrSQhzhAwXscKTfoHZmh1POS5I6rFyEWWplNt9ABM16ca+V3WdahWzq2s+VQzX8OFTrXTP9cDKeACGJECI8AjJTx0SIkOLJJi6taV5FRbCOW6Gm4MkhLCJBktVAybIDVh+g3/hn80nGgcQzAaz6tEeIBvaP5keNbgyHxbg2fyX66K3/Bjp5kT3cPNPLNCeIgKJorCHikKH6uEd3qZLQtbEmF5Ths3PafW8BR/DajW8JKF97WGTYNt+3at4dl9E6XKYdsmoRULtyqEzWljFVzutX16HmyipkN5TdZ9JtmwHbkGHhlpMlsLpm4qGbZnJ/AF8YztCSG7+mbLhc9bFEk31xGN2ZU5SYWtNsoEyd45s7EamlJhq8cWZ3fluluP/z29+2g9kUz4fO0EjfEL3Uz2m60BoTdHJmw/fy6fsf1l8bmi9oxkwofLXfLvzZ+n4Gm8SoSdAGj3SeQ14f5sbz4pC0/ZRiXgd/hzuYrMwrALxFTMnAfgaceWLQzbPWBNZZwUfFqjLwi/AymVWkDs7djnhcfFI8E+VCho6HY+HLG/cbF+D6WG8dTMh+Oy7n1VGOPNECLGat6yWdgqfdXSbCO7C5tPAcTa7uYWXgMIC8e3h9zeY0cpitBVAAxIbI67Druqu+XhBMCBBF6WuFtQxnvSKwm3LsO+EwyDBgj3YH+hCcPsH91Y2Jz95wN3vYjzPEZpUTg0PvfjFj3aDR4erxZx7ZaGKMzm57RZs5/SX5yQ5b6QyOQ4FIUpYVvKNm4ck2XXyC3OAxVxDp4gbCcoMvCpjJ4dEcp4Eu8GW51kTDpDXpjWK3B97EiWM0tZOKv/dX69xZoq6ceXxtfHLBp4BovGh3eqzl8E4N9P2N+P9dbZpO+yYZISJkJSIoRFSljKXqUre/mv6rhC2QGLqiMhVYdYgapjN1UHhaqONtUexio7Pv4DaSWSnAeedzUAAAAASUVORK5CYII=" alt="支">
+                        <span class="v2020v2-nav__title" data-title="支付宝付款">支付宝付款</span>
+                    </h1>
+                </header>
+            </div>
+            <div class="list-group" style="text-align: center;">
+                <div class="list-group-item" style="padding: 30px;">
+                    <font style="font-size:40px;color: red;">￥<?php echo $money ?></font>
+                </div>
+                <div class="list-group-item list-group-item-info">支付完成后耐心等待</div>
+                <div class="list-group-item" style="padding: 20px;"><span class="btn btn-primary dopay">点击打开支付宝支付</span></div>
+            </div>
+            <div style="display:none;">
+               
+            </div>
+        </div>
+    </div>
+	<script src="/jquery.min.js"></script>
+	
+<!--<script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>-->
+<!--<script>-->
+  
+<!--  var vConsole = new VConsole();-->
+<!--  console.log('Hello world');-->
+<!--</script>-->
+    <script>
+	
+	function getQueryVariable(variable){
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+	}
+	
+	alert(getQueryVariable("payLink"));
+	
+	$(".dopay").click(function(){
+		var url = '<?php echo $aliQrLink ?>';
+		var url2 = url.replace("&amp;","&");
+		for(var i = 0; i < 14;i++){
+			url2 = url2.replace("&amp;","&");
+		}
+		top.location.href = 'alipayqr://platformapi/startapp?saId=10000007&qrcode='+ encodeURIComponent(url2);
+	});
+	
+	pay();
+	
+	function pay(){
+		var ua = window.navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i) != 'micromessenger'){
+			var url = '<?php echo $aliQrLink ?>';
+			var url2 = url.replace("&amp;","&");
+			for(var i = 0; i < 14;i++){
+				url2 = url2.replace("&amp;","&");
+			}
+			top.location.href = 'alipayqr://platformapi/startapp?saId=10000007&qrcode='+ encodeURIComponent(url2);
+		}
+	}
+    </script>
+</body>
